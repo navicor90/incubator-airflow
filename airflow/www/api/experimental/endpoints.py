@@ -37,6 +37,10 @@ requires_authentication = airflow.api.api_auth.requires_authentication
 
 api_experimental = Blueprint('api_experimental', __name__)
 
+@csrf.exempt
+@api_experimental.route('/ping', methods=['GET'])
+def ping():
+    return "pong"
 
 @csrf.exempt
 @api_experimental.route('/dags/<string:dag_id>/dag_runs', methods=['POST'])

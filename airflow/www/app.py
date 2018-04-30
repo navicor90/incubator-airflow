@@ -150,7 +150,7 @@ def create_app(config=None, testing=False):
                 import importlib
                 importlib.reload(e)
 
-        app.register_blueprint(e.api_experimental, url_prefix='/api/experimental')
+        app.register_blueprint(e.api_experimental, url_prefix='')
 
         @app.context_processor
         def jinja_globals():
